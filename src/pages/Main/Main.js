@@ -1,7 +1,7 @@
 import React from 'react';
 
-function App() {
+function Main() {
   return <div className="App">React</div>;
 }
 
-export default App;
+export default Main;
