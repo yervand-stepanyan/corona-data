@@ -17,6 +17,6 @@ export const useStyles = makeStyles(theme => ({
     width: theme.logoSize,
   },
   titleWrapper: {
-    marginLeft: '10px',
+    marginLeft: theme.customSpacing.base,
   },
 }));
