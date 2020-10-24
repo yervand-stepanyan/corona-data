@@ -5,6 +5,13 @@ export const useStyles = makeStyles(theme => ({
     backgroundColor: theme.color.backgroundColorLight,
     color: theme.color.textColorLight,
   },
+  logoTitleWrapper: {
+    display: 'flex',
+    alignItems: 'center',
+  },
+  logoWrapper: {
+    display: 'flex',
+  },
   logo: {
     height: theme.logoSize,
     width: theme.logoSize,

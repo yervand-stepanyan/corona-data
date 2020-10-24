@@ -14,11 +14,13 @@ function Header() {
     <div>
       <AppBar className={classes.header} position="static">
         <Toolbar>
-          <div>
-            <img alt={LOGO.title} className={classes.logo} src={LOGO.src} />
-          </div>
-          <div className={classes.titleWrapper}>
-            <Typography variant="h6">{TITLE}</Typography>
+          <div className={classes.logoTitleWrapper}>
+            <div className={classes.logoWrapper}>
+              <img alt={LOGO.title} className={classes.logo} src={LOGO.src} />
+            </div>
+            <div className={classes.titleWrapper}>
+              <Typography variant="h6">{TITLE}</Typography>
+            </div>
           </div>
         </Toolbar>
       </AppBar>
