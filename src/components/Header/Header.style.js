@@ -1,15 +1,15 @@
 import { makeStyles } from '@material-ui/core/styles';
 
-export const useStyles = makeStyles({
+export const useStyles = makeStyles(theme => ({
   header: {
-    backgroundColor: 'white',
-    color: 'black',
+    backgroundColor: theme.color.backgroundColorLight,
+    color: theme.color.textColorLight,
   },
   logo: {
-    height: '40px',
-    width: '40px',
+    height: theme.logoSize,
+    width: theme.logoSize,
   },
   titleWrapper: {
     marginLeft: '10px',
   },
-});
+}));
