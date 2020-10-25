@@ -4,6 +4,7 @@ export const DROPDOWN_INPUT_LABEL = 'Countries';
 export const DROPDOWN_TITLE = 'Select countries';
 export const LOCAL_STORAGE = {
   darkMode: 'darkMode',
+  selectedCountries: 'selectedCountries',
 };
 export const LOGO = {
   src: logo,

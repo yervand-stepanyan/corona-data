@@ -1,4 +1,7 @@
-async function request({ method, body }) {
+const coronaURL = `${process.env.REACT_APP_ROOT_API}${process.env.REACT_APP_PARAMS}${process.env.REACT_APP_RAPIDAPI_KEY}`;
+const countriesURL = process.env.REACT_APP_COUNTRIES_API;
+
+async function request({ url, method, body }) {
   const fetchData = body
     ? {
         body: JSON.stringify(body) || '',
@@ -11,16 +14,14 @@ async function request({ method, body }) {
         method,
       };
 
-  const response = await fetch(
-    `${process.env.REACT_APP_ROOT_API}${process.env.REACT_APP_PARAMS}${process.env.REACT_APP_RAPIDAPI_KEY}`,
-    fetchData
-  );
+  const response = await fetch(url, fetchData);
 
   return response.json();
 }
 
 const API = {
-  get: () => request({ method: 'GET' }),
+  getCountriesData: () => request({ url: countriesURL, method: 'GET' }),
+  getCoronaData: () => request({ url: coronaURL, method: 'GET' }),
 };
 
 export default API;
