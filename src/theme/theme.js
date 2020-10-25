@@ -15,7 +15,9 @@ export const lightTheme = createMuiTheme({
     textColor: headerTextColorLight,
   },
   customSpacing: {
+    small: `${MAIN_SPACING_VALUE / 2}px`,
     base: `${MAIN_SPACING_VALUE}px`,
+    xLarge: `${MAIN_SPACING_VALUE * 3}px`,
   },
   logoSize: `${LOGO_SIZE}px`,
 });
@@ -32,7 +34,9 @@ export const darkTheme = createMuiTheme({
     textColor: headerTextColorDark,
   },
   customSpacing: {
+    small: `${MAIN_SPACING_VALUE / 2}px`,
     base: `${MAIN_SPACING_VALUE}px`,
+    xLarge: `${MAIN_SPACING_VALUE * 3}px`,
   },
   logoSize: `${LOGO_SIZE}px`,
 });
