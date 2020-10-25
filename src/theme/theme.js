@@ -3,13 +3,16 @@ import { createMuiTheme } from '@material-ui/core';
 const LOGO_SIZE = 40;
 const MAIN_SPACING_VALUE = 16;
 
-const backgroundColorLight = '#ffffff';
-const textColorLight = '#191919';
+const headerBackgroundColorLight = '#ffffff';
+const headerTextColorLight = '#191919';
+const headerBackgroundColorDark = '#333333';
+const headerTextColorDark = '#ffffff';
+const paperBackgroundColorDark = '#212121';
 
-const theme = createMuiTheme({
+export const lightTheme = createMuiTheme({
   color: {
-    backgroundColorLight,
-    textColorLight,
+    backgroundColor: headerBackgroundColorLight,
+    textColor: headerTextColorLight,
   },
   customSpacing: {
     base: `${MAIN_SPACING_VALUE}px`,
@@ -17,4 +20,19 @@ const theme = createMuiTheme({
   logoSize: `${LOGO_SIZE}px`,
 });
 
-export default theme;
+export const darkTheme = createMuiTheme({
+  palette: {
+    type: 'dark',
+    background: {
+      paper: paperBackgroundColorDark,
+    },
+  },
+  color: {
+    backgroundColor: headerBackgroundColorDark,
+    textColor: headerTextColorDark,
+  },
+  customSpacing: {
+    base: `${MAIN_SPACING_VALUE}px`,
+  },
+  logoSize: `${LOGO_SIZE}px`,
+});
