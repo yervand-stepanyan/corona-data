@@ -17,6 +17,7 @@ export const useStyles = makeStyles(theme => ({
   },
   dataWrapper: {
     display: 'flex',
+    justifyContent: 'center',
     marginTop: theme.customSpacing.base,
   },
   cardWrapper: {
