@@ -61,9 +61,13 @@ function ShowDataComponent({
         </div>
       </div>
       <div className={classes.dataWrapper}>
-        <div>
+        <div className={classes.cardWrapper}>
           {countriesToShow.map(country => (
-            <CountryComponent country={country} key={country.name} />
+            <CountryComponent
+              country={country}
+              filterData={filterData}
+              key={country.name}
+            />
           ))}
         </div>
       </div>

@@ -1,13 +1,29 @@
 import { makeStyles } from '@material-ui/core/styles';
 
 export const useStyles = makeStyles(theme => ({
-  countryComponentContainer: {
+  cardContainer: {
+    backgroundColor: theme.color.cardBackgroundColor,
+    margin: theme.customSpacing.small,
+  },
+  caseWrapper: {
     display: 'flex',
+    alignItems: 'center',
+    marginLeft: theme.customSpacing.base,
+    marginTop: theme.customSpacing.small,
+  },
+  dataWrapper: {
+    marginLeft: theme.customSpacing.base,
   },
   newCasesWrapper: {
-    marginLeft: theme.customSpacing.base,
+    backgroundColor: theme.color.newCasesBackgroundColor,
+    borderRadius: theme.border.borderRadius.base,
+    padding: `0 ${theme.customSpacing.xSmall}`,
+    color: theme.color.newCasesTextColor,
   },
-  lastUpdateWrapper: {
-    marginLeft: theme.customSpacing.base,
+  deathDataWrapper: {
+    backgroundColor: theme.color.newDeathBackgroundColor,
+    borderRadius: theme.border.borderRadius.base,
+    padding: `0 ${theme.customSpacing.xSmall}`,
+    color: theme.color.newDeathTextColor,
   },
 }));

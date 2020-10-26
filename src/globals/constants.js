@@ -12,7 +12,7 @@ export const FILTER_OPTIONS = [
   {
     checked: true,
     name: 'updateDate',
-    title: 'Update date',
+    title: 'Update time',
   },
   {
     checked: false,

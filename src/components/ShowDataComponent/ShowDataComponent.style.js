@@ -17,7 +17,11 @@ export const useStyles = makeStyles(theme => ({
   },
   dataWrapper: {
     display: 'flex',
-    justifyContent: 'space-between',
     marginTop: theme.customSpacing.base,
+  },
+  cardWrapper: {
+    display: 'flex',
+    justifyContent: 'space-around',
+    flexFlow: 'wrap',
   },
 }));

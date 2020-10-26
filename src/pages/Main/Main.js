@@ -26,9 +26,16 @@ function Main() {
   const [countriesToShow, setCountriesToShow] = useState([]);
   const [isEdit, setIsEdit] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
-  const [filterData, setFilterData] = useState(
-    loadState(LOCAL_STORAGE.filters) || FILTER_OPTIONS
-  );
+  const filtersFromLocalStorage = loadState(LOCAL_STORAGE.filters);
+  const filterOptions = filtersFromLocalStorage
+    ? filtersFromLocalStorage.map((filter, index) =>
+        filter.title === FILTER_OPTIONS[index].title &&
+        filter.name === FILTER_OPTIONS[index].name
+          ? filter
+          : FILTER_OPTIONS[index]
+      )
+    : FILTER_OPTIONS;
+  const [filterData, setFilterData] = useState(filterOptions);
   const [selectedCountries, setSelectedCountries] = useState([]);
 
   const getData = async () => {
