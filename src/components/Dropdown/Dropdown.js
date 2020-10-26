@@ -11,10 +11,10 @@ import { Typography } from '@material-ui/core';
 import { DROPDOWN_INPUT_LABEL, DROPDOWN_TITLE } from '../../globals/constants';
 import { useStyles } from './Dropdown.style';
 
-function Dropdown({ countries }) {
+function Dropdown({ countries, handleCountrySelect, selectedCountries }) {
   const classes = useStyles();
-  const icon = <CheckBoxOutlineBlankIcon fontSize="small" />;
   const checkedIcon = <CheckBoxIcon fontSize="small" />;
+  const icon = <CheckBoxOutlineBlankIcon fontSize="small" />;
 
   return (
     <div className={classes.dropdownContainer}>
@@ -23,33 +23,34 @@ function Dropdown({ countries }) {
       </div>
       <div className={classes.dropdownWrapper}>
         <Autocomplete
-          className={classes.dropdown}
           autoHighlight
+          className={classes.dropdown}
           disableCloseOnSelect
           getOptionLabel={option => option.name}
-          id="checkboxes-tags-demo"
+          getOptionSelected={(option, values) => option.name === values.name}
           multiple
+          onChange={(event, value) => handleCountrySelect(value)}
           options={countries}
           renderInput={params => (
             <TextField
               {...params}
-              variant="outlined"
               label={DROPDOWN_INPUT_LABEL}
               placeholder="Favorites"
+              variant="outlined"
             />
           )}
           renderOption={(option, { selected }) => (
             <>
               <Checkbox
-                icon={icon}
-                checkedIcon={checkedIcon}
-                style={{ marginRight: 8 }}
                 checked={selected}
+                checkedIcon={checkedIcon}
+                icon={icon}
+                style={{ marginRight: 8 }}
               />
               {option.name}
             </>
           )}
-          // style={{ width: 500 }}
+          value={selectedCountries}
         />
       </div>
     </div>
@@ -58,6 +59,8 @@ function Dropdown({ countries }) {
 
 Dropdown.propTypes = {
   countries: PropTypes.array.isRequired,
+  handleCountrySelect: PropTypes.func.isRequired,
+  selectedCountries: PropTypes.array.isRequired,
 };
 
 export default Dropdown;
