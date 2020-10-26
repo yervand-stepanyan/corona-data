@@ -25,6 +25,12 @@ export const FILTER_OPTIONS = [
     title: 'Update time',
   },
 ];
+export const CASE_OPTION = {
+  newCases: FILTER_OPTIONS[0].name,
+  newDeaths: FILTER_OPTIONS[1].name,
+  activeCases: FILTER_OPTIONS[2].name,
+  updateDate: FILTER_OPTIONS[3].name,
+};
 export const LOCAL_STORAGE = {
   darkMode: 'darkMode',
   filters: 'filters',
