@@ -43,6 +43,7 @@ function ShowDataComponent({
                   <Checkbox
                     checked={data.checked}
                     onChange={() => handleCheckboxChange(data.name)}
+                    size="small"
                   />
                 )}
                 key={data.name}
