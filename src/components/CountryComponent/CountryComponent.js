@@ -8,9 +8,9 @@ function CountryComponent({ country }) {
 
   return (
     <div className={classes.countryComponentContainer}>
-      <div>{country.Country_text}</div>
-      <div className={classes.newCasesWrapper}>{country['New Cases_text']}</div>
-      <div className={classes.lastUpdateWrapper}>{country['Last Update']}</div>
+      <div>{country.name}</div>
+      <div className={classes.newCasesWrapper}>{country.newCases}</div>
+      <div className={classes.lastUpdateWrapper}>{country.updateDate}</div>
     </div>
   );
 }

@@ -29,7 +29,7 @@ function ShowDataComponent({ countriesToShow, handleShow }) {
       <div className={classes.dataWrapper}>
         <div>
           {countriesToShow.map(country => (
-            <CountryComponent country={country} key={country.Country_text} />
+            <CountryComponent country={country} key={country.name} />
           ))}
         </div>
         <div>

@@ -4,6 +4,7 @@ import Paper from '@material-ui/core/Paper';
 import { ThemeProvider } from '@material-ui/core/styles';
 
 import API from '../../fetchAPI';
+import { convertDate } from '../../helpers/convertDate';
 import { darkTheme, lightTheme } from '../../theme/theme';
 import Header from '../../components/Header';
 import { loadState, saveState } from '../../helpers/localStorage';
@@ -66,8 +67,15 @@ function Main() {
     const filteredCountries = selectedCountries.map(country =>
       coronaData.find(data => data.Country_text === country.name)
     );
+    const mappedCountries = filteredCountries.map(country => ({
+      activeCases: country['Active Cases_text'],
+      name: country.Country_text,
+      newCases: country['New Cases_text'],
+      newDeaths: country['New Deaths_text'],
+      updateDate: convertDate(country['Last Update']),
+    }));
 
-    setCountriesToShow(filteredCountries);
+    setCountriesToShow(mappedCountries);
   }, [selectedCountries]);
 
   const handleDarkMode = () => {
