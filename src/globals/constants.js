@@ -10,11 +10,6 @@ export const FILTER_OPTIONS = [
     title: 'New cases',
   },
   {
-    checked: true,
-    name: 'updateDate',
-    title: 'Update time',
-  },
-  {
     checked: false,
     name: 'newDeaths',
     title: 'New deaths',
@@ -23,6 +18,11 @@ export const FILTER_OPTIONS = [
     checked: false,
     name: 'activeCases',
     title: 'Active cases',
+  },
+  {
+    checked: true,
+    name: 'updateDate',
+    title: 'Update time',
   },
 ];
 export const LOCAL_STORAGE = {

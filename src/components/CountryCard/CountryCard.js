@@ -5,10 +5,10 @@ import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
 import Typography from '@material-ui/core/Typography';
 
-import { useStyles } from './CountryComponent.style';
+import { useStyles } from './CountryCard.style';
 import { FILTER_OPTIONS } from '../../globals/constants';
 
-function CountryComponent({ country, filterData }) {
+function CountryCard({ country, filterData }) {
   const classes = useStyles();
 
   return (
@@ -29,7 +29,7 @@ function CountryComponent({ country, filterData }) {
                     ? classes.newCasesWrapper
                     : ''
                 } ${
-                  filter.name === FILTER_OPTIONS[2].name
+                  filter.name === FILTER_OPTIONS[1].name
                     ? classes.deathDataWrapper
                     : ''
                 }`}
@@ -46,9 +46,9 @@ function CountryComponent({ country, filterData }) {
   );
 }
 
-CountryComponent.propTypes = {
+CountryCard.propTypes = {
   country: PropTypes.object.isRequired,
   filterData: PropTypes.array.isRequired,
 };
 
-export default CountryComponent;
+export default CountryCard;

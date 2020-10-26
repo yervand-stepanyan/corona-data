@@ -10,7 +10,7 @@ import Tooltip from '@material-ui/core/Tooltip';
 import { Typography } from '@material-ui/core';
 import Zoom from '@material-ui/core/Zoom';
 
-import CountryComponent from '../CountryComponent';
+import CountryCard from '../CountryCard';
 import {
   EDIT_ICON_TOOLTIP_TITLE,
   SHOWDATA_TITLE,
@@ -63,7 +63,7 @@ function ShowDataComponent({
       <div className={classes.dataWrapper}>
         <div className={classes.cardWrapper}>
           {countriesToShow.map(country => (
-            <CountryComponent
+            <CountryCard
               country={country}
               filterData={filterData}
               key={country.name}
