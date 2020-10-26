@@ -5,8 +5,8 @@ import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
 import Typography from '@material-ui/core/Typography';
 
+import { CASE_OPTION } from '../../globals/constants';
 import { useStyles } from './CountryCard.style';
-import { FILTER_OPTIONS } from '../../globals/constants';
 
 function CountryCard({ country, filterData }) {
   const classes = useStyles();
@@ -25,11 +25,11 @@ function CountryCard({ country, filterData }) {
               </div>
               <div
                 className={`${classes.dataWrapper} ${
-                  filter.name === FILTER_OPTIONS[0].name
+                  filter.name === CASE_OPTION.newCases
                     ? classes.newCasesWrapper
                     : ''
                 } ${
-                  filter.name === FILTER_OPTIONS[1].name
+                  filter.name === CASE_OPTION.newDeaths
                     ? classes.deathDataWrapper
                     : ''
                 }`}
