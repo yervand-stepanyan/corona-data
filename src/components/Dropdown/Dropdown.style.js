@@ -7,9 +7,6 @@ export const useStyles = makeStyles(theme => ({
     flexDirection: 'column',
     marginTop: theme.customSpacing.base,
     padding: `0 ${theme.customSpacing.small}`,
-    '@media only screen and (min-width: 600px)': {
-      marginTop: theme.customSpacing.xLarge,
-    },
   },
   dropdownWrapper: {
     display: 'flex',
