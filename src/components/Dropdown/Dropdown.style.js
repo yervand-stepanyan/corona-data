@@ -6,7 +6,7 @@ export const useStyles = makeStyles(theme => ({
     alignItems: 'center',
     flexDirection: 'column',
     marginTop: theme.customSpacing.base,
-    padding: `0 ${theme.customSpacing.small}`,
+    padding: `0 ${theme.customSpacing.small} ${theme.customSpacing.large}`,
   },
   dropdownTitleWrapper: {
     textAlign: 'center',

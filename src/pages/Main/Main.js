@@ -8,7 +8,7 @@ import { convertDate } from '../../helpers/convertDate';
 import { darkTheme, lightTheme } from '../../theme/theme';
 import Header from '../../components/Header';
 import { loadState, saveState } from '../../helpers/localStorage';
-import { LOCAL_STORAGE } from '../../globals/constants';
+import { FILTER_OPTIONS, LOCAL_STORAGE } from '../../globals/constants';
 
 import { useStyles } from './Main.style';
 import Dropdown from '../../components/Dropdown';
@@ -23,9 +23,12 @@ function Main() {
   const theme = darkMode ? darkTheme : lightTheme;
   const [countries, setCountries] = useState([]);
   const [coronaData, setCoronaData] = useState([]);
+  const [countriesToShow, setCountriesToShow] = useState([]);
   const [isEdit, setIsEdit] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
-  const [countriesToShow, setCountriesToShow] = useState([]);
+  const [filterData, setFilterData] = useState(
+    loadState(LOCAL_STORAGE.filters) || FILTER_OPTIONS
+  );
   const [selectedCountries, setSelectedCountries] = useState([]);
 
   const getData = async () => {
@@ -95,6 +98,20 @@ function Main() {
     setIsEdit(!isEdit);
   };
 
+  const handleCheckboxChange = name => {
+    const newFilters = filterData.map(filter =>
+      filter.name === name
+        ? {
+            ...filter,
+            checked: !filter.checked,
+          }
+        : filter
+    );
+
+    setFilterData(newFilters);
+    saveState(LOCAL_STORAGE.filters, newFilters);
+  };
+
   return (
     <ThemeProvider theme={theme}>
       <Paper className={classes.paper} square>
@@ -113,6 +130,8 @@ function Main() {
             ) : (
               <ShowDataComponent
                 countriesToShow={countriesToShow}
+                filterData={filterData}
+                handleCheckboxChange={handleCheckboxChange}
                 handleShow={handleShow}
               />
             )}
