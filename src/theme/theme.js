@@ -17,6 +17,7 @@ export const lightTheme = createMuiTheme({
   customSpacing: {
     small: `${MAIN_SPACING_VALUE / 2}px`,
     base: `${MAIN_SPACING_VALUE}px`,
+    large: `${MAIN_SPACING_VALUE * 2}px`,
     xLarge: `${MAIN_SPACING_VALUE * 3}px`,
   },
   logoSize: `${LOGO_SIZE}px`,
@@ -36,6 +37,7 @@ export const darkTheme = createMuiTheme({
   customSpacing: {
     small: `${MAIN_SPACING_VALUE / 2}px`,
     base: `${MAIN_SPACING_VALUE}px`,
+    large: `${MAIN_SPACING_VALUE * 2}px`,
     xLarge: `${MAIN_SPACING_VALUE * 3}px`,
   },
   logoSize: `${LOGO_SIZE}px`,
