@@ -16,14 +16,19 @@ import {
 } from '../../globals/constants';
 import { useStyles } from './Dropdown.style';
 
-function Dropdown({ countries, handleCountrySelect, selectedCountries }) {
+function Dropdown({
+  countries,
+  handleCountrySelect,
+  handleShow,
+  selectedCountries,
+}) {
   const classes = useStyles();
   const checkedIcon = <CheckBoxIcon fontSize="small" />;
   const icon = <CheckBoxOutlineBlankIcon fontSize="small" />;
 
   return (
     <div className={classes.dropdownContainer}>
-      <div>
+      <div className={classes.dropdownTitleWrapper}>
         <Typography variant="h5">{DROPDOWN_TITLE}</Typography>
       </div>
       <div className={classes.dropdownWrapper}>
@@ -59,7 +64,12 @@ function Dropdown({ countries, handleCountrySelect, selectedCountries }) {
         />
       </div>
       <div className={classes.buttonWrapper}>
-        <Button color="primary" variant="contained">
+        <Button
+          color="primary"
+          disabled={!selectedCountries.length}
+          onClick={e => handleShow(e)}
+          variant="contained"
+        >
           {SHOW_BUTTON_LABEL}
         </Button>
       </div>
@@ -70,6 +80,7 @@ function Dropdown({ countries, handleCountrySelect, selectedCountries }) {
 Dropdown.propTypes = {
   countries: PropTypes.array.isRequired,
   handleCountrySelect: PropTypes.func.isRequired,
+  handleShow: PropTypes.func.isRequired,
   selectedCountries: PropTypes.array.isRequired,
 };
 

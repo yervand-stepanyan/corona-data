@@ -8,6 +8,9 @@ export const useStyles = makeStyles(theme => ({
     marginTop: theme.customSpacing.base,
     padding: `0 ${theme.customSpacing.small}`,
   },
+  dropdownTitleWrapper: {
+    textAlign: 'center',
+  },
   dropdownWrapper: {
     display: 'flex',
     justifyContent: 'center',
