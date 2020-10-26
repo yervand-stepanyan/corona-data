@@ -2,13 +2,18 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 import Autocomplete from '@material-ui/lab/Autocomplete';
+import Button from '@material-ui/core/Button';
 import Checkbox from '@material-ui/core/Checkbox';
 import CheckBoxIcon from '@material-ui/icons/CheckBox';
 import CheckBoxOutlineBlankIcon from '@material-ui/icons/CheckBoxOutlineBlank';
 import TextField from '@material-ui/core/TextField';
 import { Typography } from '@material-ui/core';
 
-import { DROPDOWN_INPUT_LABEL, DROPDOWN_TITLE } from '../../globals/constants';
+import {
+  DROPDOWN_INPUT_LABEL,
+  DROPDOWN_TITLE,
+  SHOW_BUTTON_LABEL,
+} from '../../globals/constants';
 import { useStyles } from './Dropdown.style';
 
 function Dropdown({ countries, handleCountrySelect, selectedCountries }) {
@@ -52,6 +57,11 @@ function Dropdown({ countries, handleCountrySelect, selectedCountries }) {
           )}
           value={selectedCountries}
         />
+      </div>
+      <div className={classes.buttonWrapper}>
+        <Button color="primary" variant="contained">
+          {SHOW_BUTTON_LABEL}
+        </Button>
       </div>
     </div>
   );

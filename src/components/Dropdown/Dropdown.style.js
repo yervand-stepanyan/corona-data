@@ -26,4 +26,7 @@ export const useStyles = makeStyles(theme => ({
   dropdown: {
     width: '100%',
   },
+  buttonWrapper: {
+    marginTop: theme.customSpacing.base,
+  },
 }));

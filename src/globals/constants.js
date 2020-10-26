@@ -10,4 +10,5 @@ export const LOGO = {
   src: logo,
   title: 'logo',
 };
+export const SHOW_BUTTON_LABEL = 'Save & Show';
 export const TITLE = 'Corona Data';
