@@ -1,8 +1,8 @@
 import { createMuiTheme } from '@material-ui/core';
 
 const LOGO_SIZE = 40;
-const MAIN_SPACING_VALUE = 16;
 const MAIN_BORDER_RADIUS_VALUE = 4;
+const MAIN_SPACING_VALUE = 16;
 
 const cardBackgroundColorDark = '#2d2d2d';
 const cardBackgroundColorLight = '#F5F5F5';

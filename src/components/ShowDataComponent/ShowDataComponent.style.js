@@ -21,7 +21,7 @@ export const useStyles = makeStyles(theme => ({
   },
   cardWrapper: {
     display: 'flex',
-    justifyContent: 'space-around',
     flexFlow: 'wrap',
+    justifyContent: 'space-around',
   },
 }));
