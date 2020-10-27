@@ -5,7 +5,6 @@ import { ThemeProvider } from '@material-ui/core/styles';
 
 import API from '../../fetchAPI';
 import { checkOptionChange } from '../../helpers/checkOptionChange';
-import { convertDate } from '../../helpers/convertDate';
 import { createCountryList } from '../../helpers/createCountryList';
 import { darkTheme, lightTheme } from '../../theme/theme';
 import Dropdown from '../../components/Dropdown';
@@ -14,6 +13,7 @@ import Header from '../../components/Header';
 import { LOCAL_STORAGE } from '../../globals/constants';
 import Loader from '../../components/Loader';
 import { loadState, saveState } from '../../helpers/localStorage';
+import { refactorCountries } from '../../helpers/refactorCountries';
 import ShowDataComponent from '../../components/ShowDataComponent';
 import { sortCountries } from '../../helpers/sortCountries';
 import { useStyles } from './Main.style';
@@ -68,13 +68,7 @@ function Main() {
 
   useEffect(() => {
     const filteredCountries = filterCountries(selectedCountries, coronaData);
-    const mappedCountries = filteredCountries.map(country => ({
-      activeCases: country['Active Cases_text'],
-      name: country.Country_text,
-      newCases: country['New Cases_text'],
-      newDeaths: country['New Deaths_text'],
-      updateDate: convertDate(country['Last Update']),
-    }));
+    const mappedCountries = refactorCountries(filteredCountries);
 
     setCountriesToShow(mappedCountries);
   }, [selectedCountries]);

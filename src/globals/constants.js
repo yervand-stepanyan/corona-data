@@ -40,6 +40,7 @@ export const LOGO = {
   src: logo,
   title: 'logo',
 };
+export const NOT_AVAILABLE = 'N/A';
 export const SHOW_BUTTON_LABEL = 'Save & Show';
 export const SHOWDATA_TITLE = {
   single: 'Data for selected country',

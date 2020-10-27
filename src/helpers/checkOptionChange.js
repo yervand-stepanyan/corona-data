@@ -1,7 +1,7 @@
 import { FILTER_OPTIONS } from '../globals/constants';
 
 export const checkOptionChange = array => {
-  if (array) {
+  if (Array.isArray(array) && array.length) {
     return array.map((filter, index) =>
       filter.title === FILTER_OPTIONS[index].title &&
       filter.name === FILTER_OPTIONS[index].name
