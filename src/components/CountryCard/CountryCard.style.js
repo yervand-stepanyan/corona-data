@@ -4,6 +4,7 @@ export const useStyles = makeStyles(theme => ({
   cardContainer: {
     backgroundColor: theme.color.cardBackgroundColor,
     margin: theme.customSpacing.small,
+    minWidth: theme.cardWidth,
   },
   caseWrapper: {
     display: 'flex',

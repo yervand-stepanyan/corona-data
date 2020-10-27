@@ -2,6 +2,7 @@ import { createMuiTheme } from '@material-ui/core';
 
 const LOGO_SIZE = 40;
 const MAIN_BORDER_RADIUS_VALUE = 4;
+const MAIN_CARD_WIDTH = 278;
 const MAIN_SPACING_VALUE = 16;
 
 const cardBackgroundColorDark = '#2d2d2d';
@@ -22,6 +23,7 @@ export const lightTheme = createMuiTheme({
       base: `${MAIN_BORDER_RADIUS_VALUE}px`,
     },
   },
+  cardWidth: `${MAIN_CARD_WIDTH}px`,
   color: {
     cardBackgroundColor: cardBackgroundColorLight,
     backgroundColor: headerBackgroundColorLight,
@@ -53,6 +55,7 @@ export const darkTheme = createMuiTheme({
       base: `${MAIN_BORDER_RADIUS_VALUE}px`,
     },
   },
+  cardWidth: `${MAIN_CARD_WIDTH}px`,
   color: {
     cardBackgroundColor: cardBackgroundColorDark,
     backgroundColor: headerBackgroundColorDark,
