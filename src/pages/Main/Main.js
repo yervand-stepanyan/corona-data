@@ -9,6 +9,7 @@ import { convertDate } from '../../helpers/convertDate';
 import { createCountryList } from '../../helpers/createCountryList';
 import { darkTheme, lightTheme } from '../../theme/theme';
 import Dropdown from '../../components/Dropdown';
+import { filterCountries } from '../../helpers/filterCountries';
 import Header from '../../components/Header';
 import { LOCAL_STORAGE } from '../../globals/constants';
 import Loader from '../../components/Loader';
@@ -66,9 +67,7 @@ function Main() {
   }, []);
 
   useEffect(() => {
-    const filteredCountries = selectedCountries.map(country =>
-      coronaData.find(data => data.Country_text === country.name)
-    );
+    const filteredCountries = filterCountries(selectedCountries, coronaData);
     const mappedCountries = filteredCountries.map(country => ({
       activeCases: country['Active Cases_text'],
       name: country.Country_text,

@@ -10,6 +10,5 @@ export const sortCountries = array => {
       return 0;
     });
   }
-
   return array;
 };
