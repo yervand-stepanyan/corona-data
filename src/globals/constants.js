@@ -22,7 +22,7 @@ export const FILTER_OPTIONS = [
   {
     checked: true,
     name: 'updateDate',
-    title: 'Update time',
+    title: 'Last updated',
   },
 ];
 export const CASE_OPTION = {
