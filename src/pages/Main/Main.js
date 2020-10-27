@@ -7,14 +7,14 @@ import API from '../../fetchAPI';
 import { convertDate } from '../../helpers/convertDate';
 import { createCountryList } from '../../helpers/createCountryList';
 import { darkTheme, lightTheme } from '../../theme/theme';
-import Header from '../../components/Header';
-import { loadState, saveState } from '../../helpers/localStorage';
-import { FILTER_OPTIONS, LOCAL_STORAGE } from '../../globals/constants';
-
-import { useStyles } from './Main.style';
 import Dropdown from '../../components/Dropdown';
+import Header from '../../components/Header';
+import { FILTER_OPTIONS, LOCAL_STORAGE } from '../../globals/constants';
 import Loader from '../../components/Loader';
+import { loadState, saveState } from '../../helpers/localStorage';
 import ShowDataComponent from '../../components/ShowDataComponent';
+import { sortCountries } from '../../helpers/sortCountries';
+import { useStyles } from './Main.style';
 
 function Main() {
   const classes = useStyles();
@@ -43,15 +43,7 @@ function Main() {
     try {
       const coronaResponse = await API.getCoronaData();
       const countriesArray = await createCountryList(coronaResponse);
-      const sortedCountries = [...countriesArray].sort((a, b) => {
-        if (a.name < b.name) {
-          return -1;
-        }
-        if (a.name > b.name) {
-          return 1;
-        }
-        return 0;
-      });
+      const sortedCountries = sortCountries(countriesArray);
 
       setCountries(sortedCountries);
       setCoronaData(coronaResponse);
