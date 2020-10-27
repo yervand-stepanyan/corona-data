@@ -25,8 +25,8 @@ export const lightTheme = createMuiTheme({
   },
   cardWidth: `${MAIN_CARD_WIDTH}px`,
   color: {
-    cardBackgroundColor: cardBackgroundColorLight,
     backgroundColor: headerBackgroundColorLight,
+    cardBackgroundColor: cardBackgroundColorLight,
     newCasesBackgroundColor,
     newCasesTextColor,
     newDeathBackgroundColor,
@@ -44,33 +44,17 @@ export const lightTheme = createMuiTheme({
 });
 
 export const darkTheme = createMuiTheme({
+  ...lightTheme,
   palette: {
     type: 'dark',
     background: {
       paper: paperBackgroundColorDark,
     },
   },
-  border: {
-    borderRadius: {
-      base: `${MAIN_BORDER_RADIUS_VALUE}px`,
-    },
-  },
-  cardWidth: `${MAIN_CARD_WIDTH}px`,
   color: {
-    cardBackgroundColor: cardBackgroundColorDark,
+    ...lightTheme.color,
     backgroundColor: headerBackgroundColorDark,
-    newCasesBackgroundColor,
-    newCasesTextColor,
-    newDeathBackgroundColor,
-    newDeathTextColor,
+    cardBackgroundColor: cardBackgroundColorDark,
     textColor: headerTextColorDark,
   },
-  customSpacing: {
-    xSmall: `${MAIN_SPACING_VALUE / 2.66}px`,
-    small: `${MAIN_SPACING_VALUE / 2}px`,
-    base: `${MAIN_SPACING_VALUE}px`,
-    large: `${MAIN_SPACING_VALUE * 2}px`,
-    xLarge: `${MAIN_SPACING_VALUE * 3}px`,
-  },
-  logoSize: `${LOGO_SIZE}px`,
 });
