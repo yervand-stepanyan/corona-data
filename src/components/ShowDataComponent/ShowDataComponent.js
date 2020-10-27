@@ -1,11 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import Checkbox from '@material-ui/core/Checkbox';
 import CreateIcon from '@material-ui/icons/Create';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import FormGroup from '@material-ui/core/FormGroup';
 import IconButton from '@material-ui/core/IconButton';
+import Switch from '@material-ui/core/Switch';
 import Tooltip from '@material-ui/core/Tooltip';
 import { Typography } from '@material-ui/core';
 import Zoom from '@material-ui/core/Zoom';
@@ -40,7 +40,7 @@ function ShowDataComponent({
             {filterData.map(data => (
               <FormControlLabel
                 control={(
-                  <Checkbox
+                  <Switch
                     checked={data.checked}
                     onChange={() => handleCheckboxChange(data.name)}
                     size="small"

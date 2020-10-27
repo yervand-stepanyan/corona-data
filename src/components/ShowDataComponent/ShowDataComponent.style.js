@@ -12,8 +12,10 @@ export const useStyles = makeStyles(theme => ({
   },
   filtersIconWrapper: {
     display: 'flex',
+    alignItems: 'center',
     justifyContent: 'space-around',
     marginTop: theme.customSpacing.base,
+    padding: `0 ${theme.customSpacing.small}`,
   },
   dataWrapper: {
     display: 'flex',
