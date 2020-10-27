@@ -2,7 +2,7 @@ import { createMuiTheme } from '@material-ui/core';
 
 const LOGO_SIZE = 40;
 const MAIN_BORDER_RADIUS_VALUE = 4;
-const MAIN_CARD_WIDTH = 278;
+const MAIN_CARD_WIDTH = 282;
 const MAIN_SPACING_VALUE = 16;
 
 const cardBackgroundColorDark = '#2d2d2d';
