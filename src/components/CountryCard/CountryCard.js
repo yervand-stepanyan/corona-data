@@ -6,6 +6,7 @@ import CardContent from '@material-ui/core/CardContent';
 import Typography from '@material-ui/core/Typography';
 
 import { CASE_OPTION } from '../../globals/constants';
+import { checkIsNumber } from '../../helpers/checkIsNumber';
 import { useStyles } from './CountryCard.style';
 
 function CountryCard({ country, filterData }) {
@@ -25,11 +26,13 @@ function CountryCard({ country, filterData }) {
               </div>
               <div
                 className={`${classes.dataWrapper} ${
-                  filter.name === CASE_OPTION.newCases
+                  filter.name === CASE_OPTION.newCases &&
+                  checkIsNumber(country[filter.name])
                     ? classes.newCasesWrapper
                     : ''
                 } ${
-                  filter.name === CASE_OPTION.newDeaths
+                  filter.name === CASE_OPTION.newDeaths &&
+                  checkIsNumber(country[filter.name])
                     ? classes.deathDataWrapper
                     : ''
                 }`}
