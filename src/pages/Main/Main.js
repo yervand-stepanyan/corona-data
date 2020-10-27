@@ -4,12 +4,13 @@ import Paper from '@material-ui/core/Paper';
 import { ThemeProvider } from '@material-ui/core/styles';
 
 import API from '../../fetchAPI';
+import { checkOptionChange } from '../../helpers/checkOptionChange';
 import { convertDate } from '../../helpers/convertDate';
 import { createCountryList } from '../../helpers/createCountryList';
 import { darkTheme, lightTheme } from '../../theme/theme';
 import Dropdown from '../../components/Dropdown';
 import Header from '../../components/Header';
-import { FILTER_OPTIONS, LOCAL_STORAGE } from '../../globals/constants';
+import { LOCAL_STORAGE } from '../../globals/constants';
 import Loader from '../../components/Loader';
 import { loadState, saveState } from '../../helpers/localStorage';
 import ShowDataComponent from '../../components/ShowDataComponent';
@@ -28,14 +29,7 @@ function Main() {
   const [isEdit, setIsEdit] = useState(true);
   const [isLoading, setIsLoading] = useState(true);
   const filtersFromLocalStorage = loadState(LOCAL_STORAGE.filters);
-  const filterOptions = filtersFromLocalStorage
-    ? filtersFromLocalStorage.map((filter, index) =>
-        filter.title === FILTER_OPTIONS[index].title &&
-        filter.name === FILTER_OPTIONS[index].name
-          ? filter
-          : FILTER_OPTIONS[index]
-      )
-    : FILTER_OPTIONS;
+  const filterOptions = checkOptionChange(filtersFromLocalStorage);
   const [filterData, setFilterData] = useState(filterOptions);
   const [selectedCountries, setSelectedCountries] = useState([]);
 
