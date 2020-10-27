@@ -24,7 +24,7 @@ function Main() {
   const [countries, setCountries] = useState([]);
   const [coronaData, setCoronaData] = useState([]);
   const [countriesToShow, setCountriesToShow] = useState([]);
-  const [isEdit, setIsEdit] = useState(false);
+  const [isEdit, setIsEdit] = useState(true);
   const [isLoading, setIsLoading] = useState(true);
   const filtersFromLocalStorage = loadState(LOCAL_STORAGE.filters);
   const filterOptions = filtersFromLocalStorage
@@ -57,10 +57,17 @@ function Main() {
       setCountries(sortedCountries);
       setCoronaData(coronaResponse);
 
-      const dataFromLocalStorage = loadState(LOCAL_STORAGE.selectedCountries);
+      const selectedCountriesFromLocalStorage = loadState(
+        LOCAL_STORAGE.selectedCountries
+      );
 
-      if (dataFromLocalStorage) {
-        setSelectedCountries(dataFromLocalStorage);
+      if (
+        selectedCountriesFromLocalStorage &&
+        selectedCountriesFromLocalStorage.length
+      ) {
+        setSelectedCountries(selectedCountriesFromLocalStorage);
+
+        setIsEdit(!isEdit);
       }
     } catch (e) {
       setIsLoading(false);
@@ -102,6 +109,7 @@ function Main() {
 
   const handleShow = event => {
     event.preventDefault();
+
     setIsEdit(!isEdit);
   };
 
@@ -127,7 +135,7 @@ function Main() {
           <Loader />
         ) : (
           <div>
-            {isEdit || !selectedCountries.length ? (
+            {isEdit ? (
               <Dropdown
                 countries={countries}
                 handleCountrySelect={handleCountrySelect}
