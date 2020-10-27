@@ -5,6 +5,7 @@ import { ThemeProvider } from '@material-ui/core/styles';
 
 import API from '../../fetchAPI';
 import { convertDate } from '../../helpers/convertDate';
+import { createCountryList } from '../../helpers/createCountryList';
 import { darkTheme, lightTheme } from '../../theme/theme';
 import Header from '../../components/Header';
 import { loadState, saveState } from '../../helpers/localStorage';
@@ -41,9 +42,7 @@ function Main() {
   const getData = async () => {
     try {
       const coronaResponse = await API.getCoronaData();
-      const countriesArray = await coronaResponse
-        .slice(1, -1)
-        .map(data => ({ name: data.Country_text }));
+      const countriesArray = await createCountryList(coronaResponse);
       const sortedCountries = [...countriesArray].sort((a, b) => {
         if (a.name < b.name) {
           return -1;
