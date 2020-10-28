@@ -13,7 +13,7 @@ import Header from '../../components/Header';
 import { LOCAL_STORAGE } from '../../globals/constants';
 import Loader from '../../components/Loader';
 import { loadState, saveState } from '../../helpers/localStorage';
-import { refactorCountries } from '../../helpers/refactorCountries';
+import { normalizeCountries } from '../../helpers/normalizeCountries';
 import ShowDataComponent from '../../components/ShowDataComponent';
 import { sortCountries } from '../../helpers/sortCountries';
 import { useStyles } from './Main.style';
@@ -68,7 +68,7 @@ function Main() {
 
   useEffect(() => {
     const filteredCountries = filterCountries(selectedCountries, coronaData);
-    const mappedCountries = refactorCountries(filteredCountries);
+    const mappedCountries = normalizeCountries(filteredCountries);
 
     setCountriesToShow(mappedCountries);
   }, [selectedCountries]);

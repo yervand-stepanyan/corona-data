@@ -1,4 +1,4 @@
-export const convertDate = date => {
+export const normalizeDate = date => {
   if (date) {
     const dateAndTime = date.split(' ');
     const dateData = dateAndTime[0].split('-');
