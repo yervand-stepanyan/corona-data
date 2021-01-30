@@ -18,10 +18,10 @@ import {
 import { useStyles } from './ShowDataComponent.style';
 
 function ShowDataComponent({
-  countriesToShow,
-  filterData,
-  handleCheckboxChange,
+  countriesDataToShow,
+  handleOptionChange,
   handleShow,
+  options,
 }) {
   const classes = useStyles();
 
@@ -29,7 +29,7 @@ function ShowDataComponent({
     <div className={classes.showDataContainer}>
       <div className={classes.showDataTitleWrapper}>
         <Typography variant="h5">
-          {countriesToShow.length > 1
+          {countriesDataToShow.length > 1
             ? SHOWDATA_TITLE.multi
             : SHOWDATA_TITLE.single}
         </Typography>
@@ -37,17 +37,17 @@ function ShowDataComponent({
       <div className={classes.filtersIconWrapper}>
         <div>
           <FormGroup row>
-            {filterData.map(data => (
+            {options.map(option => (
               <FormControlLabel
                 control={(
                   <Switch
-                    checked={data.checked}
-                    onChange={() => handleCheckboxChange(data.name)}
+                    checked={option.checked}
+                    onChange={() => handleOptionChange(option.name)}
                     size="small"
                   />
                 )}
-                key={data.name}
-                label={data.title}
+                key={option.name}
+                label={option.title}
               />
             ))}
           </FormGroup>
@@ -62,11 +62,11 @@ function ShowDataComponent({
       </div>
       <div className={classes.dataWrapper}>
         <div className={classes.cardWrapper}>
-          {countriesToShow.map(country => (
+          {countriesDataToShow.map(countryData => (
             <CountryCard
-              country={country}
-              filterData={filterData}
-              key={country.name}
+              countryData={countryData}
+              key={countryData.name}
+              options={options}
             />
           ))}
         </div>
@@ -76,10 +76,10 @@ function ShowDataComponent({
 }
 
 ShowDataComponent.propTypes = {
-  countriesToShow: PropTypes.array.isRequired,
-  filterData: PropTypes.array.isRequired,
-  handleCheckboxChange: PropTypes.func.isRequired,
+  countriesDataToShow: PropTypes.array.isRequired,
+  handleOptionChange: PropTypes.func.isRequired,
   handleShow: PropTypes.func.isRequired,
+  options: PropTypes.array.isRequired,
 };
 
 export default ShowDataComponent;

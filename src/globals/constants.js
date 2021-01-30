@@ -3,7 +3,7 @@ import logo from '../assets/images/corona-logo_260x260.png';
 export const DROPDOWN_INPUT_LABEL = 'Countries';
 export const DROPDOWN_TITLE = 'Select at least one country';
 export const EDIT_ICON_TOOLTIP_TITLE = 'Edit countries';
-export const FILTER_OPTIONS = [
+export const OPTIONS = [
   {
     checked: true,
     name: 'newCases',
@@ -26,14 +26,14 @@ export const FILTER_OPTIONS = [
   },
 ];
 export const CASE_OPTION = {
-  newCases: FILTER_OPTIONS[0].name,
-  newDeaths: FILTER_OPTIONS[1].name,
-  activeCases: FILTER_OPTIONS[2].name,
-  updateDate: FILTER_OPTIONS[3].name,
+  newCases: OPTIONS[0].name,
+  newDeaths: OPTIONS[1].name,
+  activeCases: OPTIONS[2].name,
+  updateDate: OPTIONS[3].name,
 };
 export const LOCAL_STORAGE = {
   darkMode: 'darkMode',
-  filters: 'filters',
+  options: 'options',
   selectedCountries: 'selectedCountries',
 };
 export const LOGO = {
