@@ -13,6 +13,7 @@ export const useStyles = makeStyles(theme => ({
   logoTitleWrapper: {
     display: 'flex',
     alignItems: 'center',
+    padding: `0 ${theme.customSpacing.smaller}`,
   },
   logoWrapper: {
     display: 'flex',
