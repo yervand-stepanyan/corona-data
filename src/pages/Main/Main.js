@@ -4,7 +4,7 @@ import Paper from '@material-ui/core/Paper';
 import { ThemeProvider } from '@material-ui/core/styles';
 
 import API from '../../fetchAPI';
-import { checkOptionChange } from '../../helpers/checkOptionChange';
+import { checkOptionNameChange } from '../../helpers/checkOptionNameChange';
 import { createCountryList } from '../../helpers/createCountryList';
 import { darkTheme, lightTheme } from '../../theme/theme';
 import Dropdown from '../../components/Dropdown';
@@ -26,12 +26,12 @@ function Main() {
   const theme = darkMode ? darkTheme : lightTheme;
   const [countries, setCountries] = useState([]);
   const [coronaData, setCoronaData] = useState([]);
-  const [countriesToShow, setCountriesToShow] = useState([]);
+  const [countriesDataToShow, setCountriesDataToShow] = useState([]);
   const [isEdit, setIsEdit] = useState(true);
   const [isLoading, setIsLoading] = useState(true);
-  const filtersFromLocalStorage = loadState(LOCAL_STORAGE.filters);
-  const filterOptions = checkOptionChange(filtersFromLocalStorage);
-  const [filterData, setFilterData] = useState(filterOptions);
+  const optionsFromLocalStorage = loadState(LOCAL_STORAGE.options);
+  const fixedOptions = checkOptionNameChange(optionsFromLocalStorage);
+  const [options, setOptions] = useState(fixedOptions);
   const [selectedCountries, setSelectedCountries] = useState([]);
 
   const getData = async () => {
@@ -68,9 +68,9 @@ function Main() {
 
   useEffect(() => {
     const filteredCountries = filterCountries(selectedCountries, coronaData);
-    const mappedCountries = normalizeCountries(filteredCountries);
+    const normalizedCountries = normalizeCountries(filteredCountries);
 
-    setCountriesToShow(mappedCountries);
+    setCountriesDataToShow(normalizedCountries);
   }, [selectedCountries]);
 
   const handleDarkMode = () => {
@@ -91,18 +91,18 @@ function Main() {
     setIsEdit(!isEdit);
   };
 
-  const handleCheckboxChange = name => {
-    const newFilters = filterData.map(filter =>
-      filter.name === name
+  const handleOptionChange = name => {
+    const changedOptions = options.map(option =>
+      option.name === name
         ? {
-            ...filter,
-            checked: !filter.checked,
+            ...option,
+            checked: !option.checked,
           }
-        : filter
+        : option
     );
 
-    setFilterData(newFilters);
-    saveState(LOCAL_STORAGE.filters, newFilters);
+    setOptions(changedOptions);
+    saveState(LOCAL_STORAGE.options, changedOptions);
   };
 
   return (
@@ -122,10 +122,10 @@ function Main() {
               />
             ) : (
               <ShowDataComponent
-                countriesToShow={countriesToShow}
-                filterData={filterData}
-                handleCheckboxChange={handleCheckboxChange}
+                countriesDataToShow={countriesDataToShow}
+                handleOptionChange={handleOptionChange}
                 handleShow={handleShow}
+                options={options}
               />
             )}
           </div>
