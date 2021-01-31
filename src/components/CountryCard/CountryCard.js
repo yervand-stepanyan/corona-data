@@ -16,7 +16,9 @@ function CountryCard({ countryData, options }) {
     <Card className={classes.cardContainer} variant="outlined">
       <CardContent>
         <div>
-          <Typography variant="h6">{countryData.name}</Typography>
+          <div>
+            <Typography variant="h6">{countryData.name}</Typography>
+          </div>
         </div>
         <div className={classes.contentWrapper}>
           <div className={classes.optionsWrapper}>
