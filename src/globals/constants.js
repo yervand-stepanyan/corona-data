@@ -33,6 +33,7 @@ export const CASE_OPTION = {
 };
 export const LOCAL_STORAGE = {
   darkMode: 'darkMode',
+  filters: 'filters', // Removed on version 1.0.1
   options: 'options',
   selectedCountries: 'selectedCountries',
 };
