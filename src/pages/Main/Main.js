@@ -14,12 +14,14 @@ import { LOCAL_STORAGE } from '../../globals/constants';
 import Loader from '../../components/Loader';
 import { loadState, saveState } from '../../helpers/localStorage';
 import { normalizeCountries } from '../../helpers/normalizeCountries';
+import { renameLocalStorageKey } from '../../helpers/renameLocalStorageKey';
 import ShowDataComponent from '../../components/ShowDataComponent';
 import { sortCountries } from '../../helpers/sortCountries';
 import { useStyles } from './Main.style';
 
 function Main() {
   const classes = useStyles();
+  renameLocalStorageKey(LOCAL_STORAGE.filters, LOCAL_STORAGE.options);
   const [darkMode, setDarkMode] = useState(
     loadState(LOCAL_STORAGE.darkMode) || false
   );
@@ -53,7 +55,9 @@ function Main() {
       ) {
         setSelectedCountries(selectedCountriesFromLocalStorage);
 
-        setIsEdit(!isEdit);
+        setIsEdit(false);
+
+        setOptions(fixedOptions);
       }
     } catch (e) {
       setIsLoading(false);
